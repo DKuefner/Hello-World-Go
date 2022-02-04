@@ -1,19 +1,19 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:$SHORT_SHA', '.']
+  args: ['build', '-t', 'https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:;drc=3dbc3adda9309ac2ee24ce24717bc6d8a9825260:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:$SHORT_SHA']
+  args: ['push', 'https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:;drc=3dbc3adda9309ac2ee24ce24717bc6d8a9825260:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
   - 'run'
   - 'deploy'
   - 'hello-world-app'
   - '--image'
-  - 'https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:$SHORT_SHA'
+  - 'https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:;drc=3dbc3adda9309ac2ee24ce24717bc6d8a9825260:$SHORT_SHA'
   - '--region'
   - 'europe-west3'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:$SHORT_SHA
+- https://source.cloud.google.com/eso-cloud-infra-01/github_dkuefner_hello-world-go/+/master:;drc=3dbc3adda9309ac2ee24ce24717bc6d8a9825260:$SHORT_SHA
