@@ -1,19 +1,19 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'playground-s-11-c60a1d3b/github_dkuefner_hello-world-go/master//:$COMMIT_SHA', '.']
+  args: ['build', '-t', 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master//:$COMMIT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'playground-s-11-c60a1d3b/github_dkuefner_hello-world-go/master//:$COMMIT_SHA']
+  args: ['push', 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master//:$COMMIT_SHA']
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
   - 'run'
   - 'deploy'
   - 'hello-world-app'
   - '--image'
-  - 'playground-s-11-c60a1d3b/github_dkuefner_hello-world-go/master//:$COMMIT_SHA'
+  - 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master//:$COMMIT_SHA'
   - '--region'
-  - 'us-east1'
+  - 'europe-west3'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- playground-s-11-c60a1d3b/github_dkuefner_hello-world-go/master//:$COMMIT_SHA
+- eso-cloud-infra-01/github_dkuefner_hello-world-go/master//:$COMMIT_SHA
