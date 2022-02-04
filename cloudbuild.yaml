@@ -1,19 +1,19 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master/:$SHORT_SHA', '.']
+  args: ['build', '-t', 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master/:$SHORT_SHA']
+  args: ['push', 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
   - 'run'
   - 'deploy'
   - 'hello-world-app'
   - '--image'
-  - 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master/:$SHORT_SHA'
+  - 'eso-cloud-infra-01/github_dkuefner_hello-world-go/master:$SHORT_SHA'
   - '--region'
   - 'europe-west3'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- eso-cloud-infra-01/github_dkuefner_hello-world-go/master/:$SHORT_SHA
+- eso-cloud-infra-01/github_dkuefner_hello-world-go/master:$SHORT_SHA
