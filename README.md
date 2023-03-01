@@ -5,7 +5,7 @@ This app provides the following:
 
 - Web page displaying a simple Hello World message
 - Using Git and Git Hub as code repository
-Google Cloud Build as CI/CD engine which allows versioning (cloudbuild file required)
+- Google Cloud Build as CI/CD engine which allows versioning (cloudbuild file required)
 - Cloud Run as PaaS service
 - The app written in Go (based on a community example)
 
